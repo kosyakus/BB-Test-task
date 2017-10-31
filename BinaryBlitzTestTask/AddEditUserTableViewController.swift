@@ -10,52 +10,65 @@ import UIKit
 
 class AddEditUserTableViewController: UITableViewController {
 
+    var userToEdit: User? //This variable contains the existing ChecklistItem object that the user will be editing
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // the keyboard automatically appeared once the screen opens
+        nameTextField.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // In editing mode, when itemToEdit is not nil, the title in the navigation bar is “Edit Item”
+        if let user = userToEdit {
+            title = "Edit User"
+            nameTextField.text = user.name
+            surnameTextField.text = user.surname
+            emailTextField.text = user.email
+            
+            doneBarButton.isEnabled = true // enable the Done button
+            
+        }
+        
     }
 
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    // check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
+    func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let oldNameText = nameTextField.text! as NSString
+        let newNameText = oldNameText.replacingCharacters(in: range, with: string) as NSString
+        let oldSurnameText = surnameTextField.text! as NSString
+        let newSurnameText = oldSurnameText.replacingCharacters(in: range, with: string) as NSString
+        let oldEmailText = emailTextField.text! as NSString
+        let newEmailText = oldEmailText.replacingCharacters(in: range, with: string) as NSString
+        
+        //doneBarButton.isEnabled = (newText.length > 0) // the same as if-else
+        
+         if newNameText.length > 0 && newSurnameText.length > 0 && newEmailText.length > 0 {
+         doneBarButton.isEnabled = true
+         } else {
+         doneBarButton.isEnabled = false
+         }
+        
         return true
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+    
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+    
 
     /*
     // MARK: - Navigation
@@ -68,16 +81,8 @@ class AddEditUserTableViewController: UITableViewController {
     */
     
     @IBAction func cancel() {
-        /* // This tells the app to close the Add Item screen with an animation
+        // This tells the app to close the Add Item screen with an animation
          dismiss(animated: true, completion: nil)
-         
-         Here the ? tells Swift not to send the message if delegate is nil. You can read this
-         as, “Is there a delegate? Then send the message.” This practice is called optional
-         chaining     */
-        
-        //delegate?.addItemViewControllerDidCancel(self)
-         dismiss(animated: true, completion: nil)
-        
     }
     
     

@@ -100,15 +100,31 @@ class UsersListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+     if segue.identifier == "AddUser" {
+     let navigationController = segue.destination as! UINavigationController
+     let controller = navigationController.topViewController as! AddEditUserTableViewController
+     
+     //controller.delegate = self
+     
+     } else if segue.identifier == "EditUser" {
+     let navigationController = segue.destination as! UINavigationController
+     let controller = navigationController.topViewController as! AddEditUserTableViewController
+     
+     //controller.delegate = self
+     
+     // that UITableViewCell object find the row number by looking up the corresponding index-path using tableView.indexPath(for)
+     if let indexPath = tableView.indexPath(
+     for: sender as! UITableViewCell) {
+     controller.userToEdit = users[indexPath.row]
+            }
+        }
     }
-    */
+ 
     
     
     

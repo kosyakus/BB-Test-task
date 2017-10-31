@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Users List-->
         <scene sceneID="h3I-ES-NOq">
             <objects>
                 <tableViewController id="0N1-hV-u9c" customClass="UsersListTableViewController" customModule="BinaryBlitzTestTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
                             <outlet property="delegate" destination="0N1-hV-u9c" id="TNz-09-zPO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2Ya-Gc-A8s">
+                    <navigationItem key="navigationItem" title="Users List" id="2Ya-Gc-A8s">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Phh-sd-r4x">
                             <connections>
                                 <segue destination="7Bj-Av-tij" kind="presentation" identifier="AddUser" id="Dn3-FI-AD7"/>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="285.60000000000002" y="91.304347826086968"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Add User-->
         <scene sceneID="105-xq-9dF">
             <objects>
                 <tableViewController id="t2U-Ga-aB5" customClass="AddEditUserTableViewController" customModule="BinaryBlitzTestTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,6 +98,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uqu-2l-9tt" id="2Aw-8C-Anh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9g-WY-G9E">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="B9g-WY-G9E" secondAttribute="bottom" id="0Lz-zb-xWc"/>
+                                                <constraint firstItem="B9g-WY-G9E" firstAttribute="centerY" secondItem="2Aw-8C-Anh" secondAttribute="centerY" id="VcC-f0-fdm"/>
+                                                <constraint firstItem="B9g-WY-G9E" firstAttribute="top" secondItem="2Aw-8C-Anh" secondAttribute="top" id="W1G-Nj-xVM"/>
+                                                <constraint firstItem="B9g-WY-G9E" firstAttribute="centerX" secondItem="2Aw-8C-Anh" secondAttribute="centerX" id="emC-1f-dsC"/>
+                                                <constraint firstItem="B9g-WY-G9E" firstAttribute="leading" secondItem="2Aw-8C-Anh" secondAttribute="leading" constant="10" id="fsc-i9-8rp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -110,6 +125,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CVd-gR-pna" id="XL9-Oh-IZC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-wT-uTZ">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="43"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r9i-wT-uTZ" firstAttribute="leading" secondItem="XL9-Oh-IZC" secondAttribute="leading" constant="10" id="Cno-V8-E86"/>
+                                                <constraint firstAttribute="trailing" secondItem="r9i-wT-uTZ" secondAttribute="trailing" constant="10" id="KNZ-Lg-jxT"/>
+                                                <constraint firstAttribute="bottom" secondItem="r9i-wT-uTZ" secondAttribute="bottom" id="YON-MF-eRu"/>
+                                                <constraint firstItem="r9i-wT-uTZ" firstAttribute="top" secondItem="XL9-Oh-IZC" secondAttribute="top" id="fj4-7A-bkS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -122,6 +151,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K5v-P4-VL6" id="uWG-cg-RWx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLf-MO-r07">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BLf-MO-r07" firstAttribute="leading" secondItem="uWG-cg-RWx" secondAttribute="leading" constant="10" id="3O2-Nz-DTJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="BLf-MO-r07" secondAttribute="bottom" id="iDO-Uq-E0J"/>
+                                                <constraint firstAttribute="trailing" secondItem="BLf-MO-r07" secondAttribute="trailing" constant="10" id="r9n-mB-GMu"/>
+                                                <constraint firstItem="BLf-MO-r07" firstAttribute="top" secondItem="uWG-cg-RWx" secondAttribute="top" id="rTc-BD-880"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -132,14 +175,20 @@
                             <outlet property="delegate" destination="t2U-Ga-aB5" id="utT-3n-521"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ar5-CA-ARP">
+                    <navigationItem key="navigationItem" title="Add User" id="Ar5-CA-ARP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="127-KM-xjY">
                             <connections>
                                 <action selector="cancel" destination="t2U-Ga-aB5" id="I4p-Kd-E8g"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gvw-gU-9tU"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="gvw-gU-9tU"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="gvw-gU-9tU" id="mWZ-of-WtA"/>
+                        <outlet property="emailTextField" destination="BLf-MO-r07" id="sGu-3b-4QB"/>
+                        <outlet property="nameTextField" destination="B9g-WY-G9E" id="kBD-x2-RX4"/>
+                        <outlet property="surnameTextField" destination="r9i-wT-uTZ" id="7rw-44-7lx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldU-dc-M3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
