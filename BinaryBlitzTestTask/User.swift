@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import RealmSwift
 import SwiftyJSON
 
-class News: Object {
+class User {
     
-    dynamic var name: String = ""
-    dynamic var surname: String = ""
-    dynamic var thumbnail: String = ""
-    dynamic var email: String = ""
+    var name: String = ""
+    var surname: String = ""
+    var thumbnail: String = ""
+    var email: String = ""
     
     
     convenience init?(_ json: JSON) {
@@ -24,7 +23,7 @@ class News: Object {
             let name = json["first_name"].string,
             let surname = json["last_name"].string,
             let thumbnail = json["avatar_url"].string,
-            let email = json["email"].string,
+            let email = json["email"].string
             else { return nil }
         
         self.init()

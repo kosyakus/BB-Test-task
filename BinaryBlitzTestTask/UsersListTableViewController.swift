@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class UsersListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        downloadUsers(completion: { (success) in
+            if success {
+                print("success")
+                print(self.users)
+                self.tableView.reloadData()
+            }
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +34,36 @@ class UsersListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return users.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UsersListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UsersListCell", for: indexPath) as! UsersTableViewCell
+        
+        let user = users[indexPath.row]
 
-        // Configure the cell...
+        cell.nameLabel.text = "\(user.name) \(user.surname)"
+        cell.emailLabel.text = user.email
+        
+        if let imgURL:URL = URL(string: user.thumbnail) {
+            let imgData = try! Data(contentsOf: imgURL)
+            cell.thumbnail.image = UIImage(data: imgData)
+        } else {
+            cell.thumbnail.image = UIImage(named: "noimage")
+        }
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +109,37 @@ class UsersListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
+    var users = [User]()
+    let url = "https://bb-test-server.herokuapp.com/users.json"
+    
+    // functions for parsing json
+    typealias downloadUsersCompletion = () -> Void
+    
+    func downloadUsers(completion: @escaping (_ success: Bool) -> Void) {
+        
+        Alamofire.request(url).responseJSON { [weak self] response in
+            
+            switch response.result {
+            case .success(let rawJson):
+                let json = JSON(rawJson)
+                print(json)
+                for  (_, subJson):(String, JSON) in json[] {
+                    if  let addUsers = User(subJson) {
+                        self?.users.append(addUsers)
+                    }
+                 }
+                
+                completion(true)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
 
 }

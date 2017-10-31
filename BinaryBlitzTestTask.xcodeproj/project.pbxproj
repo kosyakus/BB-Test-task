@@ -15,9 +15,13 @@
 		84C537B11FA88E9A003C3E39 /* UsersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C537B01FA88E9A003C3E39 /* UsersListTableViewController.swift */; };
 		84C537B31FA89270003C3E39 /* AddEditUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C537B21FA89270003C3E39 /* AddEditUserTableViewController.swift */; };
 		84C537B51FA89359003C3E39 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C537B41FA89359003C3E39 /* User.swift */; };
+		84C537B71FA89A8C003C3E39 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C537B61FA89A8C003C3E39 /* UsersTableViewCell.swift */; };
+		AC75C40513BE5EDB8AEA341D /* Pods_BinaryBlitzTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5315CF3D0B7405CA918CE3F /* Pods_BinaryBlitzTestTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06ECDAA8D2DAAF148E0E663B /* Pods-BinaryBlitzTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinaryBlitzTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask.release.xcconfig"; sourceTree = "<group>"; };
+		2B924FEB9B0C95CFBD748A23 /* Pods-BinaryBlitzTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinaryBlitzTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		84C5379B1FA88E0A003C3E39 /* BinaryBlitzTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinaryBlitzTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C5379E1FA88E0A003C3E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C537A01FA88E0A003C3E39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		84C537B01FA88E9A003C3E39 /* UsersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewController.swift; sourceTree = "<group>"; };
 		84C537B21FA89270003C3E39 /* AddEditUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUserTableViewController.swift; sourceTree = "<group>"; };
 		84C537B41FA89359003C3E39 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84C537B61FA89A8C003C3E39 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		D5315CF3D0B7405CA918CE3F /* Pods_BinaryBlitzTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BinaryBlitzTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC75C40513BE5EDB8AEA341D /* Pods_BinaryBlitzTestTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		029065C3F4523844DB6555B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5315CF3D0B7405CA918CE3F /* Pods_BinaryBlitzTestTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CE4F762965C09352F9673EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B924FEB9B0C95CFBD748A23 /* Pods-BinaryBlitzTestTask.debug.xcconfig */,
+				06ECDAA8D2DAAF148E0E663B /* Pods-BinaryBlitzTestTask.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84C537921FA88E0A003C3E39 = {
 			isa = PBXGroup;
 			children = (
 				84C5379D1FA88E0A003C3E39 /* BinaryBlitzTestTask */,
 				84C5379C1FA88E0A003C3E39 /* Products */,
+				2CE4F762965C09352F9673EE /* Pods */,
+				029065C3F4523844DB6555B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +91,7 @@
 				84C537A21FA88E0A003C3E39 /* Main.storyboard */,
 				84C537B41FA89359003C3E39 /* User.swift */,
 				84C537B01FA88E9A003C3E39 /* UsersListTableViewController.swift */,
+				84C537B61FA89A8C003C3E39 /* UsersTableViewCell.swift */,
 				84C537B21FA89270003C3E39 /* AddEditUserTableViewController.swift */,
 				84C537A51FA88E0A003C3E39 /* Assets.xcassets */,
 				84C537A71FA88E0A003C3E39 /* LaunchScreen.storyboard */,
@@ -80,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C537AD1FA88E0A003C3E39 /* Build configuration list for PBXNativeTarget "BinaryBlitzTestTask" */;
 			buildPhases = (
+				A38E4F1E51E80C90F38F5A83 /* [CP] Check Pods Manifest.lock */,
 				84C537971FA88E0A003C3E39 /* Sources */,
 				84C537981FA88E0A003C3E39 /* Frameworks */,
 				84C537991FA88E0A003C3E39 /* Resources */,
+				BB20D52FF143886E06E3E655 /* [CP] Embed Pods Frameworks */,
+				6DB3E4879DCCD55066191CE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +170,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6DB3E4879DCCD55066191CE0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A38E4F1E51E80C90F38F5A83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB20D52FF143886E06E3E655 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84C537971FA88E0A003C3E39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,6 +227,7 @@
 				84C537A11FA88E0A003C3E39 /* ViewController.swift in Sources */,
 				84C537B11FA88E9A003C3E39 /* UsersListTableViewController.swift in Sources */,
 				84C537B51FA89359003C3E39 /* User.swift in Sources */,
+				84C537B71FA89A8C003C3E39 /* UsersTableViewCell.swift in Sources */,
 				84C5379F1FA88E0A003C3E39 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +363,7 @@
 		};
 		84C537AE1FA88E0A003C3E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B924FEB9B0C95CFBD748A23 /* Pods-BinaryBlitzTestTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +378,7 @@
 		};
 		84C537AF1FA88E0A003C3E39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06ECDAA8D2DAAF148E0E663B /* Pods-BinaryBlitzTestTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

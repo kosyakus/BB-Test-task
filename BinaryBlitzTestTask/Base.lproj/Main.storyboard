@@ -12,13 +12,13 @@
         <!--Root View Controller-->
         <scene sceneID="h3I-ES-NOq">
             <objects>
-                <tableViewController id="0N1-hV-u9c" sceneMemberID="viewController">
+                <tableViewController id="0N1-hV-u9c" customClass="UsersListTableViewController" customModule="BinaryBlitzTestTask" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAs-cv-mVb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsersListCell" rowHeight="130" id="YYS-47-IYI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsersListCell" rowHeight="130" id="YYS-47-IYI" customClass="UsersTableViewCell" customModule="BinaryBlitzTestTask" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YYS-47-IYI" id="bIX-2w-hyq">
@@ -57,6 +57,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="emailLabel" destination="Bry-5h-D1W" id="l3K-Bf-26a"/>
+                                    <outlet property="nameLabel" destination="heD-a5-w8h" id="xEV-Pc-zj0"/>
+                                    <outlet property="thumbnail" destination="HWm-qA-6cv" id="Xxc-Nr-HQK"/>
                                     <segue destination="7Bj-Av-tij" kind="presentation" identifier="EditUser" id="gmu-ZL-qX6"/>
                                 </connections>
                             </tableViewCell>
