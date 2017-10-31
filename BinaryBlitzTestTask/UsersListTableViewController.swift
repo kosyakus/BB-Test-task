@@ -19,7 +19,7 @@ class UsersListTableViewController: UITableViewController {
         downloadUsers(completion: { (success) in
             if success {
                 print("success")
-                print(self.users)
+                //print(self.users)
                 self.tableView.reloadData()
             }
         })
@@ -142,7 +142,7 @@ class UsersListTableViewController: UITableViewController {
             switch response.result {
             case .success(let rawJson):
                 let json = JSON(rawJson)
-                print(json)
+                //print(json)
                 for  (_, subJson):(String, JSON) in json[] {
                     if  let addUsers = User(subJson) {
                         self?.users.append(addUsers)

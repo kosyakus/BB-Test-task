@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+//import SwiftyJSON
 
 class AddEditUserTableViewController: UITableViewController {
 
@@ -83,6 +85,82 @@ class AddEditUserTableViewController: UITableViewController {
     @IBAction func cancel() {
         // This tells the app to close the Add Item screen with an animation
          dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func done() {
+        if let user = userToEdit {
+            
+            user.name = nameTextField.text!
+            user.surname = surnameTextField.text!
+            user.email = emailTextField.text!
+            user.thumbnail = ""
+            
+            //PUT
+            
+            let params: Parameters = [
+                "first_name": user.name,
+                "last_name": user.surname,
+                "email": user.email,
+                "avatar_url": user.thumbnail
+            ]
+            
+            request("https://bb-test-server.herokuapp.com/users/1.json", method: .put, parameters: params).validate().responseJSON { responseJSON in
+                
+                switch responseJSON.result {
+                case .success(let value):
+                    /*guard
+                        let jsonObject = value as? [String: Any],
+                        let post = Post(json: jsonObject)
+                        else { return }*/
+                    print(value)
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+        } else {
+            let user = User()
+            user.name = nameTextField.text!
+            user.surname = surnameTextField.text!
+            user.email = emailTextField.text!
+            user.thumbnail = ""
+            
+            
+            // POST
+            let params: Parameters = [
+                "first_name": user.name,
+                "last_name": user.surname,
+                "email": user.email,
+                "avatar_url": user.thumbnail
+            ]
+            
+            Alamofire.request("https://bb-test-server.herokuapp.com/users.json", method: .post, parameters: params).validate().responseJSON { responseJSON in
+                
+                
+                //statusCode = (responseJSON.response?.statusCode)! //Gets HTTP status code, useful for debugging
+                switch responseJSON.result {
+                    
+                case .success(let value):
+                    /*guard
+                        let jsonObject = value as? [String: Any],
+                        let post = User(jsonObject)
+                        else { return }*/
+                    print(value)
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+            
+        }
+    
+        
+        
+        
+        
+        dismiss(animated: true, completion: nil)
     }
     
     
