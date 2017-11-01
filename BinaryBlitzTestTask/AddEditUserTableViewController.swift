@@ -102,6 +102,7 @@ class AddEditUserTableViewController: UITableViewController {
             user.name = nameTextField.text!
             user.surname = surnameTextField.text!
             user.email = emailTextField.text!
+            let id = "\(user.userId).json"
             
             //PATCH
             
@@ -114,7 +115,9 @@ class AddEditUserTableViewController: UITableViewController {
                 ]
             ]
             
-            Alamofire.request("https://bb-test-server.herokuapp.com/users/1.json", method: .patch, parameters: params).validate().responseJSON { responseJSON in
+            let url = "https://bb-test-server.herokuapp.com/users/\(id)"
+            
+            Alamofire.request(url, method: .patch, parameters: params).validate().responseJSON { responseJSON in
                 
                 switch responseJSON.result {
                 case .success(let value):

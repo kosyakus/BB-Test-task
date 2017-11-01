@@ -15,6 +15,7 @@ class User {
     var surname: String = ""
     var thumbnail: String = ""
     var email: String = ""
+    var userId: Int = 0
     
     
     convenience init?(_ json: JSON) {
@@ -23,7 +24,8 @@ class User {
             let name = json["first_name"].string,
             let surname = json["last_name"].string,
             let thumbnail = json["avatar_url"].string,
-            let email = json["email"].string
+            let email = json["email"].string,
+            let userId = json["id"].int
             else { return nil }
         
         self.init()
@@ -31,6 +33,7 @@ class User {
         self.surname = surname
         self.thumbnail = thumbnail
         self.email = email
+        self.userId = userId
         
         
     }
