@@ -87,6 +87,15 @@ class AddEditUserTableViewController: UITableViewController {
          dismiss(animated: true, completion: nil)
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func done() {
         if let user = userToEdit {
             
@@ -98,22 +107,19 @@ class AddEditUserTableViewController: UITableViewController {
             //PUT
             
             let params: Parameters = [
-                "first_name": user.name,
-                "last_name": user.surname,
-                "email": user.email,
-                "avatar_url": user.thumbnail
+                "user": [
+                    "first_name": user.name,
+                    "last_name": user.surname,
+                    "email": user.email,
+                    "avatar_url": user.thumbnail
+                ]
             ]
             
-            request("https://bb-test-server.herokuapp.com/users/1.json", method: .put, parameters: params).validate().responseJSON { responseJSON in
+            Alamofire.request("https://bb-test-server.herokuapp.com/users/1.json", method: .put, parameters: params).validate().responseJSON { responseJSON in
                 
                 switch responseJSON.result {
                 case .success(let value):
-                    /*guard
-                        let jsonObject = value as? [String: Any],
-                        let post = Post(json: jsonObject)
-                        else { return }*/
                     print(value)
-                    
                 case .failure(let error):
                     print(error)
                 }
@@ -126,40 +132,43 @@ class AddEditUserTableViewController: UITableViewController {
             user.email = emailTextField.text!
             user.thumbnail = ""
             
-            
             // POST
             let params: Parameters = [
-                "first_name": user.name,
-                "last_name": user.surname,
-                "email": user.email,
-                "avatar_url": user.thumbnail
+                "user": [
+                    "first_name": user.name,
+                    "last_name": user.surname,
+                    "email": user.email,
+                    "avatar_url": user.thumbnail
+                        ]
             ]
             
             Alamofire.request("https://bb-test-server.herokuapp.com/users.json", method: .post, parameters: params).validate().responseJSON { responseJSON in
                 
-                
-                //statusCode = (responseJSON.response?.statusCode)! //Gets HTTP status code, useful for debugging
                 switch responseJSON.result {
-                    
                 case .success(let value):
-                    /*guard
-                        let jsonObject = value as? [String: Any],
-                        let post = User(jsonObject)
-                        else { return }*/
                     print(value)
-                    
                 case .failure(let error):
+                    
+                    let message : String
+                    if let httpStatusCode = responseJSON.response?.statusCode {
+                        switch(httpStatusCode) {
+                        case 400:
+                            message = "Username or password not provided."
+                            print(message)
+                        case 401:
+                            message = "Incorrect password for user."
+                            print(message)
+                        default:
+                            print(error)
+                        }
+                    } else {
+                        message = error.localizedDescription
+                        print(message)
+                    }
                     print(error)
                 }
             }
-            
-            
         }
-    
-        
-        
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
