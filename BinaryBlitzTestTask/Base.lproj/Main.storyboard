@@ -29,6 +29,8 @@
                                             <rect key="frame" x="10" y="4" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="9pH-Ar-z57"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="Ssw-XF-zQT"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="UOg-6p-UrV"/>
                                                 <constraint firstAttribute="width" constant="120" id="ch5-z5-XVF"/>
                                             </constraints>
                                         </imageView>
