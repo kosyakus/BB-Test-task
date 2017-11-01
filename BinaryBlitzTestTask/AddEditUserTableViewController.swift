@@ -102,9 +102,8 @@ class AddEditUserTableViewController: UITableViewController {
             user.name = nameTextField.text!
             user.surname = surnameTextField.text!
             user.email = emailTextField.text!
-            user.thumbnail = ""
             
-            //PUT
+            //PATCH
             
             let params: Parameters = [
                 "user": [
@@ -115,7 +114,7 @@ class AddEditUserTableViewController: UITableViewController {
                 ]
             ]
             
-            Alamofire.request("https://bb-test-server.herokuapp.com/users/1.json", method: .put, parameters: params).validate().responseJSON { responseJSON in
+            Alamofire.request("https://bb-test-server.herokuapp.com/users/1.json", method: .patch, parameters: params).validate().responseJSON { responseJSON in
                 
                 switch responseJSON.result {
                 case .success(let value):
@@ -130,7 +129,6 @@ class AddEditUserTableViewController: UITableViewController {
             user.name = nameTextField.text!
             user.surname = surnameTextField.text!
             user.email = emailTextField.text!
-            user.thumbnail = ""
             
             // POST
             let params: Parameters = [
@@ -138,7 +136,7 @@ class AddEditUserTableViewController: UITableViewController {
                     "first_name": user.name,
                     "last_name": user.surname,
                     "email": user.email,
-                    "avatar_url": user.thumbnail
+                    "avatar_url": "https://channelkit-assets.s3.amazonaws.com/uploads/card/cover/105607/thumb_Homepage-slide-for-NB-FEB-768x432.jpeg"
                         ]
             ]
             

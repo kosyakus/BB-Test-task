@@ -45,8 +45,10 @@ class UsersListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersListCell", for: indexPath) as! UsersTableViewCell
         
-        let user = users[indexPath.row]
-
+        //let yourObject = dataArray[[dataArray count] - 1 - indexPath.row];
+        //cell.textLabel.text = yourObject
+        let user = users.reversed()[indexPath.row]
+        
         cell.nameLabel.text = "\(user.name) \(user.surname)"
         cell.emailLabel.text = user.email
         
