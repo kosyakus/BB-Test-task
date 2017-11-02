@@ -46,6 +46,7 @@ class ButtonValidationHelper {
                 return
             }
         }
+        guard validateEmail(enteredEmail: textFields[2].text!) else {return}
         enableButtons()
     }
     

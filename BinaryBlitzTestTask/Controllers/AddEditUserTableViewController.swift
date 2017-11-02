@@ -43,11 +43,9 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
         }
         
+        
         buttonHelper = ButtonValidationHelper(textFields: [nameTextField, surnameTextField, emailTextField], buttons: [doneBarButton])
-        
-        //nameTextField.delegate = self; surnameTextField.delegate = self; emailTextField.delegate = self
-        //doneBarButton.isEnabled = false
-        
+            
     }
 
     
