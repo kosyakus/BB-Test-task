@@ -5,9 +5,16 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+        <array key="Symbol.ttf">
+            <string>Symbol</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Users List-->
         <scene sceneID="h3I-ES-NOq">
@@ -34,28 +41,43 @@
                                                 <constraint firstAttribute="width" constant="120" id="ch5-z5-XVF"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heD-a5-w8h">
-                                            <rect key="frame" x="160" y="28" width="177" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bry-5h-D1W">
-                                            <rect key="frame" x="160" y="76" width="177" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pBF-Jl-vYn">
+                                            <rect key="frame" x="160" y="5" width="185" height="119.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="User name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x0-UD-PzA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="185" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heD-a5-w8h">
+                                                    <rect key="frame" x="0.0" y="30" width="185" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User email:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuA-lk-Ws4">
+                                                    <rect key="frame" x="0.0" y="60" width="185" height="29.5"/>
+                                                    <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bry-5h-D1W">
+                                                    <rect key="frame" x="0.0" y="89.5" width="185" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="heD-a5-w8h" firstAttribute="top" secondItem="bIX-2w-hyq" secondAttribute="topMargin" constant="20" id="5Cj-zN-ctd"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="heD-a5-w8h" secondAttribute="trailing" constant="30" id="5sI-oj-41g"/>
-                                        <constraint firstItem="heD-a5-w8h" firstAttribute="leading" secondItem="HWm-qA-6cv" secondAttribute="trailing" constant="30" id="C5N-Bs-UGA"/>
+                                        <constraint firstAttribute="bottom" secondItem="pBF-Jl-vYn" secondAttribute="bottom" constant="5" id="6Ma-9c-RxE"/>
+                                        <constraint firstItem="pBF-Jl-vYn" firstAttribute="leading" secondItem="HWm-qA-6cv" secondAttribute="trailing" constant="30" id="Edh-eL-MLf"/>
                                         <constraint firstItem="HWm-qA-6cv" firstAttribute="leading" secondItem="bIX-2w-hyq" secondAttribute="leading" constant="10" id="Itk-Zk-EXT"/>
                                         <constraint firstItem="HWm-qA-6cv" firstAttribute="centerY" secondItem="bIX-2w-hyq" secondAttribute="centerY" id="K84-Ii-hNW"/>
-                                        <constraint firstItem="Bry-5h-D1W" firstAttribute="top" secondItem="heD-a5-w8h" secondAttribute="bottom" constant="25" id="RTw-0a-C3Y"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Bry-5h-D1W" secondAttribute="trailing" constant="30" id="hqO-kP-FqO"/>
-                                        <constraint firstItem="Bry-5h-D1W" firstAttribute="leading" secondItem="HWm-qA-6cv" secondAttribute="trailing" constant="30" id="vgm-zh-2Md"/>
+                                        <constraint firstAttribute="trailing" secondItem="pBF-Jl-vYn" secondAttribute="trailing" constant="30" id="hzg-AK-WlO"/>
+                                        <constraint firstItem="pBF-Jl-vYn" firstAttribute="top" secondItem="bIX-2w-hyq" secondAttribute="top" constant="5" id="ypn-lg-Yb7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

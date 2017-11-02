@@ -18,8 +18,11 @@ class UsersTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.thumbnail.layer.cornerRadius = self.thumbnail.frame.size.width / 2;
+        //self.thumbnail.layer.cornerRadius = self.thumbnail.frame.size.width / 2;
         self.thumbnail.clipsToBounds = true
+        self.thumbnail.layer.cornerRadius = 20.0
+        self.thumbnail.layer.borderWidth = 3.0
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
