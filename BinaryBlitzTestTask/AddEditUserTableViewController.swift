@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 //import SwiftyJSON
 
-class AddEditUserTableViewController: UITableViewController {
+class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate {
 
     var userToEdit: User? //This variable contains the existing ChecklistItem object that the user will be editing
     
@@ -41,8 +41,13 @@ class AddEditUserTableViewController: UITableViewController {
             
         }
         
+        //nameTextField.delegate = self; surnameTextField.delegate = self; emailTextField.delegate = self
+        //doneBarButton.isEnabled = false
+        
     }
 
+    
+    
     
     // check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
     func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
@@ -61,7 +66,7 @@ class AddEditUserTableViewController: UITableViewController {
          } else {
          doneBarButton.isEnabled = false
          }
-        
+    
         return true
     }
     
@@ -72,15 +77,7 @@ class AddEditUserTableViewController: UITableViewController {
 
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     @IBAction func cancel() {
         // This tells the app to close the Add Item screen with an animation
@@ -102,6 +99,7 @@ class AddEditUserTableViewController: UITableViewController {
             user.name = nameTextField.text!
             user.surname = surnameTextField.text!
             user.email = emailTextField.text!
+            let id = "\(user.userId).json"
             
             //PATCH
             
@@ -114,7 +112,9 @@ class AddEditUserTableViewController: UITableViewController {
                 ]
             ]
             
-            Alamofire.request("https://bb-test-server.herokuapp.com/users/1.json", method: .patch, parameters: params).validate().responseJSON { responseJSON in
+            let url = "https://bb-test-server.herokuapp.com/users/\(id)"
+            
+            Alamofire.request(url, method: .patch, parameters: params).validate().responseJSON { responseJSON in
                 
                 switch responseJSON.result {
                 case .success(let value):

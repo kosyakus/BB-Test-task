@@ -122,7 +122,7 @@ class UsersListTableViewController: UITableViewController {
      // that UITableViewCell object find the row number by looking up the corresponding index-path using tableView.indexPath(for)
      if let indexPath = tableView.indexPath(
      for: sender as! UITableViewCell) {
-     controller.userToEdit = users[indexPath.row]
+     controller.userToEdit = users.reversed()[indexPath.row]
             }
         }
     }

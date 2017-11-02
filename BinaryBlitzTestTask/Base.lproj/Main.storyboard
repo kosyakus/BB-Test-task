@@ -183,7 +183,7 @@
                                 <action selector="cancel" destination="t2U-Ga-aB5" id="I4p-Kd-E8g"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gvw-gU-9tU">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="gvw-gU-9tU">
                             <connections>
                                 <action selector="done" destination="t2U-Ga-aB5" id="ymm-P3-mFl"/>
                             </connections>
