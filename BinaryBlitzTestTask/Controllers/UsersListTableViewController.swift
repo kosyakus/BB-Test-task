@@ -60,9 +60,26 @@ class UsersListTableViewController: UITableViewController {
             cell.thumbnail.image = UIImage(named: "noimage")
         }
 
+        
+        // separate cells from each other
+        cell.contentView.backgroundColor = UIColor.clear
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 120))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)
+
+        
         return cell
     }
     
+    // make a custom height
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
         
@@ -108,7 +125,7 @@ class UsersListTableViewController: UITableViewController {
     var users = [User]()
     let url = "https://bb-test-server.herokuapp.com/users.json"
     
-    // functions for parsing json
+    // function for parsing json
     typealias downloadUsersCompletion = () -> Void
     
     func downloadUsers(completion: @escaping (_ success: Bool) -> Void) {
