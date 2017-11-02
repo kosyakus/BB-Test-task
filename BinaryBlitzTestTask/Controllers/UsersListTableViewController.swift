@@ -54,8 +54,10 @@ class UsersListTableViewController: UITableViewController {
         cell.emailLabel.text = user.email
         
         if let imgURL:URL = URL(string: user.thumbnail) {
-            let imgData = try! Data(contentsOf: imgURL)
+            let imgData = try? Data(contentsOf: imgURL)
+                if let imgData = imgData {
             cell.thumbnail.image = UIImage(data: imgData)
+            }
         } else {
             cell.thumbnail.image = UIImage(named: "noimage")
         }
