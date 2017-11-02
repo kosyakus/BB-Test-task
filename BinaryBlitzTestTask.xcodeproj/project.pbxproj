@@ -65,6 +65,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		84583FF01FAB521E00F72CE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84C537B41FA89359003C3E39 /* User.swift */,
+				8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84583FF11FAB523500F72CE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84C5379E1FA88E0A003C3E39 /* AppDelegate.swift */,
+				84C537B01FA88E9A003C3E39 /* UsersListTableViewController.swift */,
+				84C537B61FA89A8C003C3E39 /* UsersTableViewCell.swift */,
+				84C537B21FA89270003C3E39 /* AddEditUserTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		84583FF21FAB525E00F72CE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84C537A21FA88E0A003C3E39 /* Main.storyboard */,
+				84C537A71FA88E0A003C3E39 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84C537921FA88E0A003C3E39 = {
 			isa = PBXGroup;
 			children = (
@@ -86,15 +115,10 @@
 		84C5379D1FA88E0A003C3E39 /* BinaryBlitzTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				84C5379E1FA88E0A003C3E39 /* AppDelegate.swift */,
-				84C537A21FA88E0A003C3E39 /* Main.storyboard */,
-				84C537B41FA89359003C3E39 /* User.swift */,
-				84C537B01FA88E9A003C3E39 /* UsersListTableViewController.swift */,
-				84C537B61FA89A8C003C3E39 /* UsersTableViewCell.swift */,
-				84C537B21FA89270003C3E39 /* AddEditUserTableViewController.swift */,
-				8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */,
+				84583FF21FAB525E00F72CE1 /* View */,
+				84583FF11FAB523500F72CE1 /* Controllers */,
+				84583FF01FAB521E00F72CE1 /* Model */,
 				84C537A51FA88E0A003C3E39 /* Assets.xcassets */,
-				84C537A71FA88E0A003C3E39 /* LaunchScreen.storyboard */,
 				84C537AA1FA88E0A003C3E39 /* Info.plist */,
 			);
 			path = BinaryBlitzTestTask;
