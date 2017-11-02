@@ -20,6 +20,8 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
+    var buttonHelper: ButtonValidationHelper!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,6 +43,8 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
         }
         
+        buttonHelper = ButtonValidationHelper(textFields: [nameTextField, surnameTextField, emailTextField], buttons: [doneBarButton])
+        
         //nameTextField.delegate = self; surnameTextField.delegate = self; emailTextField.delegate = self
         //doneBarButton.isEnabled = false
         
@@ -50,7 +54,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
     
     
     // check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
-    func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
+   /* func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         let oldNameText = nameTextField.text! as NSString
         let newNameText = oldNameText.replacingCharacters(in: range, with: string) as NSString
@@ -68,7 +72,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
          }
     
         return true
-    }
+    }*/
     
 
     
