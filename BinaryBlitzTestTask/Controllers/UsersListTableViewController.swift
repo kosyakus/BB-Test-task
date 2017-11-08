@@ -12,21 +12,28 @@ import SwiftyJSON
 
 
 class UsersListTableViewController: UITableViewController {
+    
+    var users = [User]()
+    let userService = UserService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        userService.downloadUsers(completion: { (success) in
+            if success {
+                print("success")
+                self.users = self.userService.showUser()
+                self.tableView.reloadData()
+            }
+        })
  
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        downloadUsers(completion: { (success) in
-            if success {
-                print("success")
-                //print(self.users)
-                self.tableView.reloadData()
-            }
-        })
+        
+        tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +54,7 @@ class UsersListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersListCell", for: indexPath) as! UsersTableViewCell
-        
+        // sort the array of users by id
         let userArray = users.sorted{ $0.userId > $1.userId }
         let user = userArray[indexPath.row]
         
@@ -64,21 +71,6 @@ class UsersListTableViewController: UITableViewController {
         }
 
         
-        // separate cells from each other
-        /*cell.contentView.backgroundColor = UIColor.clear
-        
-        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 120))
-        
-        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-        whiteRoundedView.layer.masksToBounds = false
-        whiteRoundedView.layer.cornerRadius = 2.0
-        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-        whiteRoundedView.layer.shadowOpacity = 0.2
-        
-        cell.contentView.addSubview(whiteRoundedView)
-        cell.contentView.sendSubview(toBack: whiteRoundedView)*/
-
-        
         return cell
     }
     
@@ -89,13 +81,6 @@ class UsersListTableViewController: UITableViewController {
     }
 
     
-
-    
-
-    
-
-    
-
     
     // MARK: - Navigation
 
@@ -119,38 +104,6 @@ class UsersListTableViewController: UITableViewController {
             }
         }
     }
- 
+   
     
-    
-    
-    
-    var users = [User]()
-    let url = "https://bb-test-server.herokuapp.com/users.json"
-    
-    // function for parsing json
-    typealias downloadUsersCompletion = () -> Void
-    
-    func downloadUsers(completion: @escaping (_ success: Bool) -> Void) {
-        
-        Alamofire.request(url).responseJSON { [weak self] response in
-            
-            switch response.result {
-            case .success(let rawJson):
-                let json = JSON(rawJson)
-                //print(json)
-                for  (_, subJson):(String, JSON) in json[] {
-                    if  let addUsers = User(subJson) {
-                        self?.users.append(addUsers)
-                    }
-                 }
-                
-                completion(true)
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-    }
-
 }

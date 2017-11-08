@@ -73,9 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				84C537B41FA89359003C3E39 /* User.swift */,
+				8461AE7F1FB33FB500C6747B /* UserService.swift */,
 				8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */,
 				84583FF31FABA5F400F72CE1 /* Valid Email.swift */,
-				8461AE7F1FB33FB500C6747B /* UserService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
