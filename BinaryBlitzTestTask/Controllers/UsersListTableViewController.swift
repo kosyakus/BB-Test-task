@@ -48,7 +48,8 @@ class UsersListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersListCell", for: indexPath) as! UsersTableViewCell
         
-        let user = users.reversed()[indexPath.row]
+        let userArray = users.sorted{ $0.userId > $1.userId }
+        let user = userArray[indexPath.row]
         
         cell.nameLabel.text = "\(user.name) \(user.surname)"
         cell.emailLabel.text = user.email
@@ -64,7 +65,7 @@ class UsersListTableViewController: UITableViewController {
 
         
         // separate cells from each other
-        cell.contentView.backgroundColor = UIColor.clear
+        /*cell.contentView.backgroundColor = UIColor.clear
         
         let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 120))
         
@@ -75,7 +76,7 @@ class UsersListTableViewController: UITableViewController {
         whiteRoundedView.layer.shadowOpacity = 0.2
         
         cell.contentView.addSubview(whiteRoundedView)
-        cell.contentView.sendSubview(toBack: whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)*/
 
         
         return cell
@@ -102,20 +103,19 @@ class UsersListTableViewController: UITableViewController {
      
      if segue.identifier == "AddUser" {
      let navigationController = segue.destination as! UINavigationController
-     let controller = navigationController.topViewController as! AddEditUserTableViewController
+     let _ = navigationController.topViewController as! AddEditUserTableViewController
      
-     //controller.delegate = self
      
      } else if segue.identifier == "EditUser" {
      let navigationController = segue.destination as! UINavigationController
      let controller = navigationController.topViewController as! AddEditUserTableViewController
      
-     //controller.delegate = self
      
      // that UITableViewCell object find the row number by looking up the corresponding index-path using tableView.indexPath(for)
      if let indexPath = tableView.indexPath(
      for: sender as! UITableViewCell) {
-     controller.userToEdit = users.reversed()[indexPath.row]
+        let userArray = users.sorted{ $0.userId > $1.userId }
+        controller.userToEdit = userArray[indexPath.row]
             }
         }
     }

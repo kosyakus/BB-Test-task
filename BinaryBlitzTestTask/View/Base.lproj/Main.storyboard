@@ -24,6 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsersListCell" rowHeight="130" id="YYS-47-IYI" customClass="UsersTableViewCell" customModule="BinaryBlitzTestTask" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
@@ -80,6 +81,7 @@
                                         <constraint firstItem="pBF-Jl-vYn" firstAttribute="top" secondItem="bIX-2w-hyq" secondAttribute="top" constant="5" id="ypn-lg-Yb7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="emailLabel" destination="Bry-5h-D1W" id="l3K-Bf-26a"/>
                                     <outlet property="nameLabel" destination="heD-a5-w8h" id="xEV-Pc-zj0"/>

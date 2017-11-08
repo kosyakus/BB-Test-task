@@ -22,7 +22,7 @@ class UsersTableViewCell: UITableViewCell {
         self.thumbnail.clipsToBounds = true
         self.thumbnail.layer.cornerRadius = 20.0
         self.thumbnail.layer.borderWidth = 3.0
-        self.thumbnail.layer.borderColor = UIColor.brown.cgColor
+        self.thumbnail.layer.borderColor = UIColor.black.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
