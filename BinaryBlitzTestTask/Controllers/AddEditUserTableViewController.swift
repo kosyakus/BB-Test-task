@@ -12,7 +12,7 @@ import Alamofire
 
 class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate {
 
-    var userToEdit: User? //This variable contains the existing ChecklistItem object that the user will be editing
+    var userToEdit: User? //This variable contains the existing UserItem object that the user will be editing
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -48,19 +48,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
     }
 
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
+   
     
     @IBAction func cancel() {
         // This tells the app to close the Add Item screen with an animation
