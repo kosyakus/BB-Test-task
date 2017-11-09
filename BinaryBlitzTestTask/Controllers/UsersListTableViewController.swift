@@ -19,6 +19,7 @@ class UsersListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
         userService.downloadUsers(completion: { (success) in
             if success {
                 print("success")
@@ -70,6 +71,20 @@ class UsersListTableViewController: UITableViewController {
             cell.thumbnail.image = UIImage(named: "noimage")
         }
 
+        //cell.layer.cornerRadius = 20.0
+        
+        
+        /*cell.contentView.backgroundColor = UIColor.clear
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 185))
+        
+        whiteRoundedView.backgroundColor = UIColor( red: CGFloat(61.0/255.0), green: CGFloat(117.0/255.0), blue: CGFloat(147.0/255.0), alpha: CGFloat(1.0))
+        
+        whiteRoundedView.layer.masksToBounds = false
+        //whiteRoundedView.layer.cornerRadius = 20.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.5
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)*/
         
         return cell
     }

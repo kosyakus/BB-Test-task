@@ -51,26 +51,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
     
     
     
-    // check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
-   /* func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        let oldNameText = nameTextField.text! as NSString
-        let newNameText = oldNameText.replacingCharacters(in: range, with: string) as NSString
-        let oldSurnameText = surnameTextField.text! as NSString
-        let newSurnameText = oldSurnameText.replacingCharacters(in: range, with: string) as NSString
-        let oldEmailText = emailTextField.text! as NSString
-        let newEmailText = oldEmailText.replacingCharacters(in: range, with: string) as NSString
-        
-        //doneBarButton.isEnabled = (newText.length > 0) // the same as if-else
-        
-         if newNameText.length > 0 && newSurnameText.length > 0 && newEmailText.length > 0 {
-         doneBarButton.isEnabled = true
-         } else {
-         doneBarButton.isEnabled = false
-         }
     
-        return true
-    }*/
     
 
     
