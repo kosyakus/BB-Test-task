@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-
 
 class UsersListTableViewController: UITableViewController {
     
@@ -19,7 +16,6 @@ class UsersListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         userService.downloadUsers(completion: { (success) in
             if success {
                 print("success")
@@ -27,7 +23,7 @@ class UsersListTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         })
- 
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,20 +67,6 @@ class UsersListTableViewController: UITableViewController {
             cell.thumbnail.image = UIImage(named: "noimage")
         }
 
-        //cell.layer.cornerRadius = 20.0
-        
-        
-        /*cell.contentView.backgroundColor = UIColor.clear
-        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 185))
-        
-        whiteRoundedView.backgroundColor = UIColor( red: CGFloat(61.0/255.0), green: CGFloat(117.0/255.0), blue: CGFloat(147.0/255.0), alpha: CGFloat(1.0))
-        
-        whiteRoundedView.layer.masksToBounds = false
-        //whiteRoundedView.layer.cornerRadius = 20.0
-        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-        whiteRoundedView.layer.shadowOpacity = 0.5
-        cell.contentView.addSubview(whiteRoundedView)
-        cell.contentView.sendSubview(toBack: whiteRoundedView)*/
         
         return cell
     }
@@ -93,6 +75,12 @@ class UsersListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
         
+    }
+    
+    // in storyboard change the Refresh to "Enabled", refr controll will appear. then connect it to this method
+    @IBAction func refreshControlActivated(_ sender: UIRefreshControl) {
+        tableView.reloadData()
+        sender.endRefreshing() // this line ends the animation
     }
 
     

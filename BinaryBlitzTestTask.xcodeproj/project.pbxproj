@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8431E2081FB5B1E800300175 /* PostPatchUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431E2071FB5B1E800300175 /* PostPatchUserService.swift */; };
 		8455DC9C1FAB42AD006D7B17 /* ButtonValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */; };
 		84583FF41FABA5F400F72CE1 /* Valid Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84583FF31FABA5F400F72CE1 /* Valid Email.swift */; };
 		8461AE801FB33FB500C6747B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461AE7F1FB33FB500C6747B /* UserService.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		06ECDAA8D2DAAF148E0E663B /* Pods-BinaryBlitzTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinaryBlitzTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		2B924FEB9B0C95CFBD748A23 /* Pods-BinaryBlitzTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinaryBlitzTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BinaryBlitzTestTask/Pods-BinaryBlitzTestTask.debug.xcconfig"; sourceTree = "<group>"; };
+		8431E2071FB5B1E800300175 /* PostPatchUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPatchUserService.swift; sourceTree = "<group>"; };
 		8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonValidationHelper.swift; sourceTree = "<group>"; };
 		84583FF31FABA5F400F72CE1 /* Valid Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Valid Email.swift"; sourceTree = "<group>"; };
 		8461AE7F1FB33FB500C6747B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				8461AE7F1FB33FB500C6747B /* UserService.swift */,
 				8455DC9B1FAB42AD006D7B17 /* ButtonValidationHelper.swift */,
 				84583FF31FABA5F400F72CE1 /* Valid Email.swift */,
+				8431E2071FB5B1E800300175 /* PostPatchUserService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8431E2081FB5B1E800300175 /* PostPatchUserService.swift in Sources */,
 				84C537B31FA89270003C3E39 /* AddEditUserTableViewController.swift in Sources */,
 				84583FF41FABA5F400F72CE1 /* Valid Email.swift in Sources */,
 				84C537B11FA88E9A003C3E39 /* UsersListTableViewController.swift in Sources */,

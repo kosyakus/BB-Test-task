@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-//import SwiftyJSON
 
 class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -22,6 +21,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
     
     var buttonHelper: ButtonValidationHelper!
     
+    let postPatchService = PostPatchService()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,7 +40,6 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             emailTextField.text = user.email
             
             doneBarButton.isEnabled = true // enable the Done button
-            
         }
         
         
@@ -55,16 +54,9 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
          dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     @IBAction func done() {
+        
         if let user = userToEdit {
             
             user.name = nameTextField.text!
@@ -85,15 +77,8 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
             let url = "https://bb-test-server.herokuapp.com/users/\(id)"
             
-            Alamofire.request(url, method: .patch, parameters: params).validate().responseJSON { responseJSON in
-                
-                switch responseJSON.result {
-                case .success(let value):
-                    print(value)
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            postPatchService.patchUser(parameters: params, url: url)
+            
             
         } else {
             let user = User()
@@ -111,32 +96,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
                         ]
             ]
             
-            Alamofire.request("https://bb-test-server.herokuapp.com/users.json", method: .post, parameters: params).validate().responseJSON { responseJSON in
-                
-                switch responseJSON.result {
-                case .success(let value):
-                    print(value)
-                case .failure(let error):
-                    
-                    let message : String
-                    if let httpStatusCode = responseJSON.response?.statusCode {
-                        switch(httpStatusCode) {
-                        case 400:
-                            message = "Username or password not provided."
-                            print(message)
-                        case 401:
-                            message = "Incorrect password for user."
-                            print(message)
-                        default:
-                            print(error)
-                        }
-                    } else {
-                        message = error.localizedDescription
-                        print(message)
-                    }
-                    print(error)
-                }
-            }
+            postPatchService.postUser(parameters: params)
         }
         dismiss(animated: true, completion: nil)
     }

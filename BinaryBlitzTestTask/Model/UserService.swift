@@ -26,7 +26,6 @@ class UserService {
             case .success(let rawJson):
                 let json = JSON(rawJson)
                 //print(json)
-                //var users = [User]()
                 for  (_, subJson):(String, JSON) in json[] {
                     if  let addUsers = User(subJson) {
                         self.users.append(addUsers)
