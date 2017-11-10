@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
 class ButtonValidationHelper {
     
     var textFields: [UITextField]!

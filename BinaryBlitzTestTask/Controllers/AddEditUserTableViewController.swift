@@ -8,11 +8,10 @@
 
 import UIKit
 import Alamofire
-//import SwiftyJSON
 
 class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate {
 
-    var userToEdit: User? //This variable contains the existing ChecklistItem object that the user will be editing
+    var userToEdit: User? //This variable contains the existing UserItem object that the user will be editing
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -22,6 +21,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
     
     var buttonHelper: ButtonValidationHelper!
     
+    let postPatchService = PostPatchService()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,7 +40,6 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             emailTextField.text = user.email
             
             doneBarButton.isEnabled = true // enable the Done button
-            
         }
         
         
@@ -48,54 +47,16 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
     }
 
-    
-    
-    
-    // check if the text field is empty, then the Done button is not enabled (also in the storyboard attr inspector)
-   /* func textField(_ nameTextField: UITextField, _ surnameTextField: UITextField, _ emailTextField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        let oldNameText = nameTextField.text! as NSString
-        let newNameText = oldNameText.replacingCharacters(in: range, with: string) as NSString
-        let oldSurnameText = surnameTextField.text! as NSString
-        let newSurnameText = oldSurnameText.replacingCharacters(in: range, with: string) as NSString
-        let oldEmailText = emailTextField.text! as NSString
-        let newEmailText = oldEmailText.replacingCharacters(in: range, with: string) as NSString
-        
-        //doneBarButton.isEnabled = (newText.length > 0) // the same as if-else
-        
-         if newNameText.length > 0 && newSurnameText.length > 0 && newEmailText.length > 0 {
-         doneBarButton.isEnabled = true
-         } else {
-         doneBarButton.isEnabled = false
-         }
-    
-        return true
-    }*/
-    
-
-    
-
-    
-
-    
-
-    
+   
     
     @IBAction func cancel() {
         // This tells the app to close the Add Item screen with an animation
          dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     @IBAction func done() {
+        
         if let user = userToEdit {
             
             user.name = nameTextField.text!
@@ -116,15 +77,8 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
             
             let url = "https://bb-test-server.herokuapp.com/users/\(id)"
             
-            Alamofire.request(url, method: .patch, parameters: params).validate().responseJSON { responseJSON in
-                
-                switch responseJSON.result {
-                case .success(let value):
-                    print(value)
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            postPatchService.patchUser(parameters: params, url: url)
+            
             
         } else {
             let user = User()
@@ -142,32 +96,7 @@ class AddEditUserTableViewController: UITableViewController, UITextFieldDelegate
                         ]
             ]
             
-            Alamofire.request("https://bb-test-server.herokuapp.com/users.json", method: .post, parameters: params).validate().responseJSON { responseJSON in
-                
-                switch responseJSON.result {
-                case .success(let value):
-                    print(value)
-                case .failure(let error):
-                    
-                    let message : String
-                    if let httpStatusCode = responseJSON.response?.statusCode {
-                        switch(httpStatusCode) {
-                        case 400:
-                            message = "Username or password not provided."
-                            print(message)
-                        case 401:
-                            message = "Incorrect password for user."
-                            print(message)
-                        default:
-                            print(error)
-                        }
-                    } else {
-                        message = error.localizedDescription
-                        print(message)
-                    }
-                    print(error)
-                }
-            }
+            postPatchService.postUser(parameters: params)
         }
         dismiss(animated: true, completion: nil)
     }
